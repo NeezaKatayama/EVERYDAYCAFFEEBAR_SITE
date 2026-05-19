@@ -176,15 +176,16 @@ a {
 
 .hero-copy {
   position: absolute;
-  left: 6%;
-  top: 58%;
+  right: 7.5%;
+  top: 50%;
   z-index: 2;
   transform: translateY(-50%);
   will-change: transform;
   color: var(--foreground);
-  font-size: clamp(2rem, 2.2vw, 3rem);
-  line-height: 1.9;
+  font-size: clamp(1.35rem, 1.55vw, 2rem);
+  line-height: 1.75;
   letter-spacing: -0.03em;
+  text-align: right;
 }
 
 .hero-kicker {
@@ -199,8 +200,8 @@ a {
 
 .hero-title {
   position: absolute;
-  right: 7.5%;
-  top: 50%;
+  left: 6%;
+  top: 58%;
   z-index: 2;
   transform: translateY(-50%);
   will-change: transform;
@@ -208,7 +209,7 @@ a {
   font-size: clamp(2.3rem, 4.8vw, 5rem);
   line-height: 0.95;
   letter-spacing: -0.05em;
-  text-align: right;
+  text-align: left;
 }
 
 .accent-slash {
