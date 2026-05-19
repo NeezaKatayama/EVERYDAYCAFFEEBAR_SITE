@@ -139,7 +139,7 @@ export default function Home() {
           <a href="#information">INFO</a>
           <a
             className="nav-accent"
-            href="https://www.google.com/maps/search/?api=1&query=%E6%9D%B1%E4%BA%AC%E9%83%BD%E6%B8%AF%E5%8C%BA%E5%8C%97%E9%9D%92%E5%B1%B13-10-25"
+            href="https://www.google.com/maps/search/?api=1&query=everydaycoffeebar"
             target="_blank"
             rel="noreferrer"
           >
