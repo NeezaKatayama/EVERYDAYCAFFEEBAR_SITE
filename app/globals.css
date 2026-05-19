@@ -503,7 +503,7 @@ a {
   }
 
   .top-nav {
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     gap: 1rem 1.5rem;
   }
 
@@ -577,6 +577,29 @@ a {
   .content-section {
     padding-left: 1.25rem;
     padding-right: 1.25rem;
+  }
+
+  .site-header {
+    gap: 0.9rem;
+  }
+
+  .top-nav {
+    width: 100%;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    gap: 0.65rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.02em;
+  }
+
+  .top-nav a {
+    white-space: nowrap;
+  }
+
+  .nav-button {
+    padding: 0.55rem 0.7rem;
+    font-size: 0.72rem;
+    white-space: nowrap;
   }
 
   .content-section {
