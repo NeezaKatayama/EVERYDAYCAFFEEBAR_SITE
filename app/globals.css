@@ -176,14 +176,15 @@ a {
 
 .hero-copy {
   position: absolute;
-  right: 7.5%;
-  top: 50%;
+  right: 6%;
+  top: 44%;
   z-index: 2;
   transform: translateY(-50%);
   will-change: transform;
+  width: min(24rem, 28vw);
   color: var(--foreground);
-  font-size: clamp(1.35rem, 1.55vw, 2rem);
-  line-height: 1.75;
+  font-size: clamp(1.15rem, 1.3vw, 1.7rem);
+  line-height: 1.65;
   letter-spacing: -0.03em;
   text-align: right;
 }
@@ -201,10 +202,11 @@ a {
 .hero-title {
   position: absolute;
   left: 6%;
-  top: 58%;
+  top: 44%;
   z-index: 2;
   transform: translateY(-50%);
   will-change: transform;
+  width: min(28rem, 30vw);
   color: rgba(255, 255, 255, 0.2);
   font-size: clamp(2.3rem, 4.8vw, 5rem);
   line-height: 0.95;
@@ -532,11 +534,14 @@ a {
   }
 
   .hero-copy {
-    margin-bottom: 2rem;
+    order: 2;
+    margin-bottom: 0;
+    margin-top: 1.5rem;
     font-size: 1.6rem;
   }
 
   .hero-center {
+    order: 3;
     min-height: auto;
     margin-bottom: 2rem;
   }
@@ -546,7 +551,8 @@ a {
   }
 
   .hero-title {
-    margin-bottom: 2rem;
+    order: 1;
+    margin-bottom: 1.5rem;
     font-size: 2.5rem;
   }
 
