@@ -162,7 +162,7 @@ export default function Home() {
           data-reveal
           style={{ "--motion-transform": heroCopyTransform }}
         >
-          <p>焙煎士がこだわる、</p>
+          <p>バリスタがこだわる、</p>
           <p>最後の一滴まで深い、</p>
           <p>本物のコクと香り</p>
         </div>
