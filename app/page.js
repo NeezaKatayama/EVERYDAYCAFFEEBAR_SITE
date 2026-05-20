@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { Caveat, Noto_Serif_JP } from "next/font/google";
 import { useEffect, useState } from "react";
 
 const menuGroups = [
@@ -55,10 +56,28 @@ const storeViewImages = [
   },
 ];
 
+const loaderTopChars = [..."EVERYDAY"];
+const loaderBottomChars = [..."COFFEE BAR"];
+
+const heroCopyFont = Noto_Serif_JP({
+  weight: ["500", "700"],
+  display: "swap",
+  preload: false,
+});
+
+const loaderFont = Caveat({
+  weight: ["500", "700"],
+  subsets: ["latin"],
+  display: "swap",
+  preload: false,
+});
+
 export default function Home() {
   const [scrollY, setScrollY] = useState(0);
   const [pointer, setPointer] = useState({ x: 0, y: 0 });
   const [activeStoreImage, setActiveStoreImage] = useState(0);
+  const [showLoader, setShowLoader] = useState(true);
+  const [loaderLeaving, setLoaderLeaving] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrollY(window.scrollY);
@@ -84,6 +103,30 @@ export default function Home() {
 
     return () => window.clearInterval(intervalId);
   }, []);
+
+  useEffect(() => {
+    const leaveTimer = window.setTimeout(() => {
+      setLoaderLeaving(true);
+    }, 2400);
+
+    const removeTimer = window.setTimeout(() => {
+      setShowLoader(false);
+    }, 3100);
+
+    document.documentElement.classList.add("is-loader-active");
+
+    return () => {
+      window.clearTimeout(leaveTimer);
+      window.clearTimeout(removeTimer);
+      document.documentElement.classList.remove("is-loader-active");
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!showLoader) {
+      document.documentElement.classList.remove("is-loader-active");
+    }
+  }, [showLoader]);
 
   useEffect(() => {
     const targets = document.querySelectorAll("[data-reveal]");
@@ -121,7 +164,40 @@ export default function Home() {
   const heroTitleTransform = `translate3d(${pointer.x * 16}px, calc(-50% + ${titleOffset + pointer.y * -10}px), 0)`;
 
   return (
-    <main className="showcase-page">
+    <main className={`showcase-page ${showLoader ? "is-loading" : ""}`}>
+      {showLoader ? (
+        <div
+          className={`loader-shell ${loaderLeaving ? "is-leaving" : ""}`}
+          aria-hidden="true"
+        >
+          <div className="loader-mark">
+            <div className={`${loaderFont.className} loader-wordmark`}>
+              <span className="loader-script-line loader-script-line-top">
+                {loaderTopChars.map((char, index) => (
+                  <span
+                    key={`top-${index}-${char}`}
+                    className={`loader-char ${char === " " ? "is-space" : ""}`}
+                    style={{ "--char-delay": `${index * 90}ms` }}
+                  >
+                    {char === " " ? "\u00A0" : char}
+                  </span>
+                ))}
+              </span>
+              <span className="loader-script-line loader-script-line-bottom">
+                {loaderBottomChars.map((char, index) => (
+                  <span
+                    key={`bottom-${index}-${char}`}
+                    className={`loader-char ${char === " " ? "is-space" : ""}`}
+                    style={{ "--char-delay": `${520 + index * 90}ms` }}
+                  >
+                    {char === " " ? "\u00A0" : char}
+                  </span>
+                ))}
+              </span>
+            </div>
+          </div>
+        </div>
+      ) : null}
       <div className="bg-triptych" aria-hidden="true">
         <span className="bg-panel bg-panel-1" />
         <span className="bg-panel bg-panel-2" />
@@ -158,7 +234,7 @@ export default function Home() {
 
       <section className="showcase-hero">
         <div
-          className="hero-copy reveal-on-scroll delay-1"
+          className={`${heroCopyFont.className} hero-copy reveal-on-scroll delay-1`}
           data-reveal
           style={{ "--motion-transform": heroCopyTransform }}
         >
@@ -172,15 +248,28 @@ export default function Home() {
           data-reveal
           style={{ "--motion-transform": heroCenterTransform }}
         >
-          <Image
-            src="/centerpiece-wireframe-v2.png"
-            alt="Wireframe style coffee grinder artwork"
-            width={1320}
-            height={1080}
-            priority
-            sizes="(max-width: 1024px) 92vw, 56vw"
-            className="centerpiece-image"
-          />
+          <div className="centerpiece-stage">
+            <span className="centerpiece-glow" aria-hidden="true" />
+            <span
+              className="centerpiece-ring centerpiece-ring-outer"
+              aria-hidden="true"
+            />
+            <span
+              className="centerpiece-ring centerpiece-ring-inner"
+              aria-hidden="true"
+            />
+            <div className="centerpiece-image-wrap">
+              <Image
+                src="/centerpiece-wireframe-v2.png"
+                alt="Wireframe style coffee grinder artwork"
+                width={1320}
+                height={1080}
+                priority
+                sizes="(max-width: 1024px) 92vw, 56vw"
+                className="centerpiece-image"
+              />
+            </div>
+          </div>
         </div>
 
         <div
