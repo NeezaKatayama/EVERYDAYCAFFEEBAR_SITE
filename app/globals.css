@@ -159,6 +159,7 @@ a {
   gap: 0.1em;
   width: min(88vw, 920px);
   padding: 0;
+  line-height: 0.9;
 }
 
 .loader-script-line {
@@ -189,6 +190,7 @@ a {
   opacity: 0;
   transform: translateY(10px) rotate(2deg) scale(0.96);
   animation: loader-char-write 520ms cubic-bezier(0.22, 1, 0.36, 1) var(--char-delay) forwards;
+  text-shadow: 0 1px 10px rgba(255, 255, 255, 0.18);
 }
 
 .loader-char::after {
@@ -858,7 +860,7 @@ a {
 @media (max-width: 720px) {
   .loader-shell {
     background:
-      linear-gradient(180deg, rgba(255, 255, 255, 0.48), rgba(240, 240, 240, 0.28)),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.68), rgba(240, 240, 240, 0.42)),
       url("/store-view-2.jpeg") center center / cover no-repeat;
   }
 
@@ -910,24 +912,26 @@ a {
 
   .loader-mark {
     width: 100%;
-    padding: 1.5rem;
+    min-height: 100svh;
+    padding: 1.25rem;
   }
 
   .loader-script-line-top {
-    font-size: clamp(3.4rem, 16vw, 5.4rem);
+    font-size: clamp(3.1rem, 15vw, 4.8rem);
   }
 
   .loader-script-line-bottom {
-    margin-left: 0.9rem;
-    font-size: clamp(2.8rem, 13vw, 4.4rem);
+    margin-left: 0.65rem;
+    font-size: clamp(2.5rem, 11.8vw, 3.9rem);
   }
 
   .loader-char {
-    color: rgba(38, 38, 38, 0.88);
+    color: rgba(26, 26, 26, 0.92);
+    text-shadow: 0 1px 14px rgba(255, 255, 255, 0.32);
   }
 
   .loader-char::after {
-    background: rgba(38, 38, 38, 0.42);
+    background: rgba(26, 26, 26, 0.56);
   }
 
   .content-section {
@@ -968,7 +972,7 @@ a {
   }
 
   .centerpiece-stage {
-    width: min(108vw, 1040px);
+    width: min(122vw, 1180px);
     aspect-ratio: auto;
   }
 
