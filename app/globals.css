@@ -130,9 +130,7 @@ a {
   width: 100vw;
   height: 100dvh;
   padding: 0;
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.34), rgba(245, 245, 245, 0.22)),
-    url("/store-view-2.jpeg") center center / cover no-repeat;
+  background: #d9d9d9;
   transition:
     opacity 700ms cubic-bezier(0.22, 1, 0.36, 1),
     visibility 700ms cubic-bezier(0.22, 1, 0.36, 1);
@@ -146,11 +144,29 @@ a {
 .loader-mark {
   position: absolute;
   inset: 0;
+  z-index: 1;
   display: grid;
   place-items: center;
   width: 100%;
   min-height: 100dvh;
   padding: 2rem;
+}
+
+.loader-background {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.loader-background-image {
+  object-fit: cover;
+  object-position: center;
+}
+
+.loader-background-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.24), rgba(255, 255, 255, 0.14));
 }
 
 .loader-wordmark {
@@ -163,6 +179,7 @@ a {
   padding: 0;
   line-height: 0.9;
   transform: translateY(-1.5vh);
+  filter: drop-shadow(0 14px 24px rgba(255, 255, 255, 0.12));
 }
 
 .loader-script-line {
@@ -189,11 +206,13 @@ a {
 .loader-char {
   position: relative;
   display: inline-block;
-  color: rgba(48, 48, 48, 0.8);
+  color: rgba(30, 30, 30, 0.88);
   opacity: 0;
   transform: translateY(10px) rotate(2deg) scale(0.96);
   animation: loader-char-write 520ms cubic-bezier(0.22, 1, 0.36, 1) var(--char-delay) forwards;
-  text-shadow: 0 1px 10px rgba(255, 255, 255, 0.18);
+  text-shadow:
+    0 1px 14px rgba(255, 255, 255, 0.28),
+    0 0 1px rgba(0, 0, 0, 0.12);
 }
 
 .loader-char::after {
@@ -201,9 +220,9 @@ a {
   position: absolute;
   top: 10%;
   right: -0.06em;
-  width: 1px;
+  width: 2px;
   height: 0.92em;
-  background: rgba(70, 70, 70, 0.34);
+  background: rgba(28, 28, 28, 0.54);
   transform: scaleY(0);
   transform-origin: top center;
   animation: loader-pen-mark 280ms ease-out calc(var(--char-delay) + 40ms) forwards;
@@ -848,10 +867,8 @@ a {
 }
 
 @media (max-width: 720px) {
-  .loader-shell {
-    background:
-      linear-gradient(180deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.08)),
-      url("/store-view-2.jpeg") center center / cover no-repeat;
+  .loader-background-overlay {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.06));
   }
 
   .bg-triptych {
@@ -908,24 +925,27 @@ a {
   .loader-wordmark {
     width: min(92vw, 34rem);
     transform: translateY(0);
+    filter: drop-shadow(0 18px 28px rgba(255, 255, 255, 0.18));
   }
 
   .loader-script-line-top {
-    font-size: clamp(2.9rem, 13vw, 4.6rem);
+    font-size: clamp(3.4rem, 15vw, 5.2rem);
   }
 
   .loader-script-line-bottom {
     margin-left: 0.9rem;
-    font-size: clamp(2.35rem, 10.8vw, 3.8rem);
+    font-size: clamp(2.75rem, 12.4vw, 4.3rem);
   }
 
   .loader-char {
-    color: rgba(32, 32, 32, 0.86);
-    text-shadow: 0 1px 10px rgba(255, 255, 255, 0.18);
+    color: rgba(18, 18, 18, 0.96);
+    text-shadow:
+      0 1px 16px rgba(255, 255, 255, 0.34),
+      0 0 1px rgba(0, 0, 0, 0.14);
   }
 
   .loader-char::after {
-    background: rgba(32, 32, 32, 0.42);
+    background: rgba(18, 18, 18, 0.68);
   }
 
   .content-section {

@@ -69,7 +69,6 @@ const loaderFont = Caveat({
   weight: ["500", "700"],
   subsets: ["latin"],
   display: "swap",
-  preload: false,
 });
 
 export default function Home() {
@@ -107,11 +106,11 @@ export default function Home() {
   useEffect(() => {
     const leaveTimer = window.setTimeout(() => {
       setLoaderLeaving(true);
-    }, 2400);
+    }, 3000);
 
     const removeTimer = window.setTimeout(() => {
       setShowLoader(false);
-    }, 3100);
+    }, 3800);
 
     document.documentElement.classList.add("is-loader-active");
 
@@ -170,6 +169,17 @@ export default function Home() {
           className={`loader-shell ${loaderLeaving ? "is-leaving" : ""}`}
           aria-hidden="true"
         >
+          <div className="loader-background">
+            <Image
+              src="/store-view-2.jpeg"
+              alt=""
+              fill
+              priority
+              sizes="100vw"
+              className="loader-background-image"
+            />
+            <span className="loader-background-overlay" />
+          </div>
           <div className="loader-mark">
             <div className={`${loaderFont.className} loader-wordmark`}>
               <span className="loader-script-line loader-script-line-top">
