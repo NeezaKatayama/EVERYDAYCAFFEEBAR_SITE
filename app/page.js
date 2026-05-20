@@ -75,7 +75,7 @@ export default function Home() {
   const [scrollY, setScrollY] = useState(0);
   const [pointer, setPointer] = useState({ x: 0, y: 0 });
   const [activeStoreImage, setActiveStoreImage] = useState(0);
-  const [showLoader, setShowLoader] = useState(true);
+  const [showLoader, setShowLoader] = useState(false);
   const [loaderLeaving, setLoaderLeaving] = useState(false);
 
   useEffect(() => {
@@ -104,6 +104,16 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
+    const isMobile = window.matchMedia("(max-width: 720px)").matches;
+
+    if (isMobile) {
+      setShowLoader(false);
+      setLoaderLeaving(false);
+      document.documentElement.classList.remove("is-loader-active");
+      return;
+    }
+
+    setShowLoader(true);
     const leaveTimer = window.setTimeout(() => {
       setLoaderLeaving(true);
     }, 3000);
@@ -187,7 +197,7 @@ export default function Home() {
                   <span
                     key={`top-${index}-${char}`}
                     className={`loader-char ${char === " " ? "is-space" : ""}`}
-                    style={{ "--char-delay": `${index * 90}ms` }}
+                    style={{ "--char-delay": `${180 + index * 95}ms` }}
                   >
                     {char === " " ? "\u00A0" : char}
                   </span>
@@ -198,7 +208,7 @@ export default function Home() {
                   <span
                     key={`bottom-${index}-${char}`}
                     className={`loader-char ${char === " " ? "is-space" : ""}`}
-                    style={{ "--char-delay": `${520 + index * 90}ms` }}
+                    style={{ "--char-delay": `${760 + index * 95}ms` }}
                   >
                     {char === " " ? "\u00A0" : char}
                   </span>
