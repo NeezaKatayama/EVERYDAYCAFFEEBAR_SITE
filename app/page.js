@@ -285,6 +285,11 @@ export default function Home() {
             </div>
           </div>
 
+          <div className="hours-block">
+            <p className="info-eyebrow">WEEKLY HOURS</p>
+            <p className="hours-summary">Open Wednesday through Sunday.</p>
+          </div>
+
           <div className="info-accent-line" />
         </div>
       </section>

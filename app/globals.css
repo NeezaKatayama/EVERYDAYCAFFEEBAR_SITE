@@ -455,6 +455,40 @@ a {
   margin-top: 1rem;
 }
 
+.hours-block {
+  display: grid;
+  gap: 0.9rem;
+  border-top: 1px solid var(--line);
+  padding-top: 1.5rem;
+}
+
+.hours-list {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.hours-summary {
+  margin: 0;
+  color: rgba(241, 241, 236, 0.82);
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+.hours-row {
+  display: grid;
+  grid-template-columns: minmax(5.5rem, 7rem) 1fr;
+  gap: 1rem;
+  padding-bottom: 0.45rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.hours-row p {
+  margin: 0;
+  color: rgba(241, 241, 236, 0.78);
+  font-size: 0.94rem;
+  line-height: 1.7;
+}
+
 .reveal-on-scroll {
   opacity: 0;
   transform: translate3d(0, 18px, 0);
@@ -567,6 +601,10 @@ a {
   .store-view-frame {
     min-height: clamp(22rem, 60vw, 34rem);
   }
+
+  .hours-row {
+    grid-template-columns: minmax(5rem, 6.5rem) 1fr;
+  }
 }
 
 @media (max-width: 720px) {
@@ -657,6 +695,11 @@ a {
     order: 4;
     width: 100%;
     margin-top: 1rem;
+  }
+
+  .hours-row {
+    grid-template-columns: 1fr;
+    gap: 0.15rem;
   }
 }
 
