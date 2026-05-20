@@ -144,10 +144,12 @@ a {
 }
 
 .loader-mark {
-  width: 100%;
-  min-height: 100dvh;
+  position: absolute;
+  inset: 0;
   display: grid;
   place-items: center;
+  width: 100%;
+  min-height: 100dvh;
   padding: 2rem;
 }
 
@@ -160,6 +162,7 @@ a {
   width: min(88vw, 920px);
   padding: 0;
   line-height: 0.9;
+  transform: translateY(-1.5vh);
 }
 
 .loader-script-line {
@@ -777,19 +780,6 @@ a {
     gap: 1rem 1.5rem;
   }
 
-  .loader-mark {
-    width: 100%;
-  }
-
-  .loader-script-line-top {
-    font-size: clamp(4rem, 10vw, 7rem);
-  }
-
-  .loader-script-line-bottom {
-    margin-left: 2rem;
-    font-size: clamp(3.3rem, 8vw, 5.8rem);
-  }
-
   .showcase-hero {
     min-height: auto;
     padding-bottom: 4rem;
@@ -911,18 +901,22 @@ a {
   }
 
   .loader-mark {
-    width: 100%;
     min-height: 100svh;
-    padding: 1.25rem;
+    padding: 2rem;
+  }
+
+  .loader-wordmark {
+    width: min(88vw, 920px);
+    transform: translateY(-1.5vh);
   }
 
   .loader-script-line-top {
-    font-size: clamp(3.1rem, 15vw, 4.8rem);
+    font-size: clamp(4.8rem, 10vw, 8.4rem);
   }
 
   .loader-script-line-bottom {
-    margin-left: 0.65rem;
-    font-size: clamp(2.5rem, 11.8vw, 3.9rem);
+    margin-left: 2.8rem;
+    font-size: clamp(4rem, 8.2vw, 7rem);
   }
 
   .loader-char {
