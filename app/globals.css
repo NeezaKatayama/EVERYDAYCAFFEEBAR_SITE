@@ -131,7 +131,7 @@ a {
   height: 100dvh;
   padding: 0;
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.12)),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.34), rgba(245, 245, 245, 0.22)),
     url("/store-view-2.jpeg") center center / cover no-repeat;
   transition:
     opacity 700ms cubic-bezier(0.22, 1, 0.36, 1),
@@ -185,7 +185,7 @@ a {
 .loader-char {
   position: relative;
   display: inline-block;
-  color: rgba(62, 62, 62, 0.72);
+  color: rgba(48, 48, 48, 0.8);
   opacity: 0;
   transform: translateY(10px) rotate(2deg) scale(0.96);
   animation: loader-char-write 520ms cubic-bezier(0.22, 1, 0.36, 1) var(--char-delay) forwards;
@@ -856,6 +856,12 @@ a {
 }
 
 @media (max-width: 720px) {
+  .loader-shell {
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.48), rgba(240, 240, 240, 0.28)),
+      url("/store-view-2.jpeg") center center / cover no-repeat;
+  }
+
   .bg-triptych {
     display: flex;
     flex-direction: row;
@@ -904,15 +910,24 @@ a {
 
   .loader-mark {
     width: 100%;
+    padding: 1.5rem;
   }
 
   .loader-script-line-top {
-    font-size: clamp(3.2rem, 15vw, 5.1rem);
+    font-size: clamp(3.4rem, 16vw, 5.4rem);
   }
 
   .loader-script-line-bottom {
-    margin-left: 1.25rem;
-    font-size: clamp(2.6rem, 12vw, 4.2rem);
+    margin-left: 0.9rem;
+    font-size: clamp(2.8rem, 13vw, 4.4rem);
+  }
+
+  .loader-char {
+    color: rgba(38, 38, 38, 0.88);
+  }
+
+  .loader-char::after {
+    background: rgba(38, 38, 38, 0.42);
   }
 
   .content-section {
@@ -953,7 +968,17 @@ a {
   }
 
   .centerpiece-stage {
-    width: min(92vw, 900px);
+    width: min(108vw, 1040px);
+    aspect-ratio: auto;
+  }
+
+  .centerpiece-glow,
+  .centerpiece-ring {
+    display: none;
+  }
+
+  .centerpiece-image-wrap {
+    animation: none;
   }
 
   .side-index {
