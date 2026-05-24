@@ -242,12 +242,19 @@ export default function Home() {
             GOOGLE MAPS
           </a>
           <a
-            className="nav-button"
+            className="nav-icon-link"
             href="https://www.instagram.com/everydaycoffeebar.omotesando/"
             target="_blank"
             rel="noreferrer"
+            aria-label="Instagram"
           >
-            INSTAGRAM
+            <svg
+              className="instagram-icon"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+              <path d="M7.25 2h9.5A5.25 5.25 0 0 1 22 7.25v9.5A5.25 5.25 0 0 1 16.75 22h-9.5A5.25 5.25 0 0 1 2 16.75v-9.5A5.25 5.25 0 0 1 7.25 2Zm0 1.75a3.5 3.5 0 0 0-3.5 3.5v9.5a3.5 3.5 0 0 0 3.5 3.5h9.5a3.5 3.5 0 0 0 3.5-3.5v-9.5a3.5 3.5 0 0 0-3.5-3.5h-9.5Zm4.75 3.75A4.5 4.5 0 1 1 7.5 12 4.5 4.5 0 0 1 12 7.5Zm0 1.75A2.75 2.75 0 1 0 14.75 12 2.75 2.75 0 0 0 12 9.25Zm5-2.38a1.13 1.13 0 1 1-1.13-1.12A1.12 1.12 0 0 1 17 6.87Z" />
+            </svg>
           </a>
         </nav>
       </header>
